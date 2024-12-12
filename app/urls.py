@@ -19,5 +19,6 @@ from django.urls import path, include
 # 1.1 <- import main/views  2 ->    
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('main.urls', namespace='main'))
+    path('', include('main.urls', namespace='main')),
+    path('catalog/', include('goods.urls', namespace='catalog')),
 ]
