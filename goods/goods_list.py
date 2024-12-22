@@ -1,10 +1,4 @@
-from django.shortcuts import render
-
-
-def catalog(request):
-    context = {
-        'title' : 'Home - Catalog', 
-        'goods' : [
+goods = [
         {'image': 'deps/images/goods/set of tea table and three chairs.jpg',
          'name': 'Чайный столик и три стула',
          'description': 'Комплект из трёх стульев и дизайнерский столик для гостинной комнаты.',
@@ -65,8 +59,3 @@ def catalog(request):
          'description': 'Столик, довольно странный на вид, но подходит для размещения рядом с кроватью.',
          'price': 25.00},
         ]
-    }
-    return render(request, 'goods/catalog.html', context)
-
-def product(request):
-    return render(request, 'goods/product.html')
