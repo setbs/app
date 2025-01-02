@@ -61,7 +61,7 @@
                     <div class="d-flex justify-content-between">
                         {% comment %} discount calculator {% endcomment %}
                         {% if product.discount %}
-                        <p><s>{{ product.price }}</s> $</p>
+                        <p><s>{{ product.price }}$</s></p>
                        <p><strong>{{ product.sell_price }}$</strong></p>
                        <span class="badge bg-warning text-dark">Discount {{ product.discount }}%</span> 
                         {% else %}
@@ -86,9 +86,9 @@
             <div class="custom-shadow d-flex">
                 <li class="page-item {% if not goods.has_previous %} disabled {% endif %}">
                 <a class="page-link" 
-                href="{% if goods.has_previous %}
-                    {% url "catalog:index" slug_url goods.previous_page_number %}
-                    {% else %}
+                href="{% if goods.has_previous %}?page={{goods.previous_page_number}}{% else %}
+                    
+                    
                     #
                     {% endif %}">Previous</a>
                 </li>
@@ -97,7 +97,7 @@
                     {% if page >= goods.number|add:-2 and page <= goods.number|add:2 %}
                         <li class="page-item"><a class="page-link
                             {% if goods.number == page %}active{% endif %}"
-                            href="{% url "catalog:index" slug_url page %}">{{ page }}</a>
+                            href="?page={{page}}">{{ page }}</a>
                         </li>             
                     {% endif %}
                 {% endfor %}
@@ -105,11 +105,9 @@
 
                 <li class="page-item {% if not goods.has_next %} disabled {% endif %}">
                 <a class="page-link" 
-                href="{% if goods.has_next %}
-                {% url "catalog:index" slug_url goods.next_page_number %}
-                {% else %}
+                href="{% if goods.has_next %}?page={{goods.next_page_number}}{% else %}
                 #
-                {% endif %}"> Next</a>
+                {% endif %}"> Next</a> 
                 </li>
             </div>
         </ul>
