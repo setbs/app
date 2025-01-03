@@ -64,19 +64,23 @@
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+
+
+                    <form class="d-flex" role="search" action='{% url "catalog:search" %}' method="get">
+                        <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success text-white" type="submit">Search</button>
                     </form>
+
+
                 </div>
             </div>
         </nav>
     </header>
     <section>
         <div class="container">
-            <!-- Каталог и корзина с фиксированным расположением на странице -->
+            <!-- -->
             <div class="row mt-1 position-fixed z-3">
-                <!-- Каталог -->
+                <!-- Catalog -->
                 <div class="dropdown mb-2">
                     <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
@@ -92,7 +96,7 @@
     
                     </ul>
                 </div>
-                <!-- Значек корзины, вызывает модальное окно -->
+                <!-- Modal window -->
                 <div>
                     <button type="button" class="btn btn-dark btn-secondary d-flex" id="modalButton"
                         aria-expanded="false">
@@ -155,7 +159,7 @@
                                             <h4 class="float-left"><strong>100.00 $</strong></h4>
                                         </div>
                                     </div>
-                                    <!-- Закончилась разметка корзины -->
+                                    <!-- Cart end -->
                                 </div>
                                 <a class="btn btn-dark" href="orders/create_order.html">
                                     Make an order
@@ -167,14 +171,14 @@
                 <!-- Закончилась разметка модального окна -->
             </div>
         </div>
-        <!-- Контент -->
+        <!-- Content -->
         <div class="container">
             <div class="row mt-1">
                 <div class="col-lg-2">
-                    <!-- Пустой блок на Ваше усмотрение -->
+                    <!-- Empty block -->
                 </div>
                 <div class="col-lg-10">
-                    <!-- Контент на странице -->
+                    <!-- Page content -->
                     {% block content %} 
 
                     {% endblock content %}
