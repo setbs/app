@@ -64,12 +64,20 @@
                             </ul>
                         </li>
                     </ul>
+                  <form class="d-flex" role="search" action="{% url 'catalog:search' %}" method="get">
+                        <input 
+                            class="form-control me-2" 
+                            type="search" 
+                            name="q" 
+                            placeholder="{% if request.GET.q %}Results for <{{ request.GET.q }}>{% else %}Search{% endif %}" 
+                            aria-label="Search">
+                        <button class="btn btn-outline-success text-white" type="submit">Search</button>
+                    </form> 
 
-
-                    <form class="d-flex" role="search" action='{% url "catalog:search" %}' method="get">
+                    {% comment %} <form class="d-flex" role="search" action='{% url "catalog:search" %}' method="get">
                         <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success text-white" type="submit">Search</button>
-                    </form>
+                    </form>  {% endcomment %}
 
 
                 </div>
