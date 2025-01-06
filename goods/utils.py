@@ -44,3 +44,4 @@ def q_search(query):
     #     q_objects |= Q(name__icontains=token)
 
     # return Products.objects.filter(q_objects)
+
