@@ -1,6 +1,10 @@
 {% extends "base.html" %} 
 {% load static %}
 
+{% block modal_cart %}
+{% include "cart_button.html" %}
+{% endblock modal_cart %}
+
 
 
 {% block content %}
@@ -38,7 +42,7 @@
             <p class="card-text">Price: <strong>{{ product.sell_price }} $</strong></p>
             <h5 class="card-title"> {{ product.name }} </h5>
             <p class="card-text">{{ product.description }}</p>
-            <a href="#" class="btn btn-dark add-to-cart"> Add to a cart </a>
+            <a href="{% url "cart:cart_add" product.slug %}" class="btn btn-dark add-to-cart"> Add to a cart </a>
         </div>
     </div>
 </div>
