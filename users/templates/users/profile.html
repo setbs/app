@@ -88,9 +88,13 @@
 
                         <!-- Закончилась разметка корзины -->
                     </div>
-                    <a class="btn btn-dark" href="../orders/create_order.html">
-                        Make an order
-                    </a>
+                    
+                    {% if carts %}
+                        <a class="btn btn-dark" href="../orders/create_order.html">
+                            Make an order
+                        </a>
+                    {% endif %}
+                        
                 </div>
             </div>
             <!-- Оформленные заказы -->
